@@ -13,7 +13,9 @@
 </br>
 
 ## 示例
-具体参考sample包中给出的Activity的用法
+具体参考 [sample包](https://github.com/InoriLover/AlphaStatusbarActivity/tree/master/AlphaStatusbarActivity/app/src/main/java/com/alphastatusbaractivity/sample)
+中给出的Activity的用法
+
 
 </br>
 
