@@ -1,4 +1,6 @@
 # AlphaStatusbarActivity
+
+[![fishySample](https://img.shields.io/badge/fishy-sample-ff69b4.svg)]()
 ## 说明
 自定义的抽象Activity类，用来实现全透明的状态栏效果。因为在5.0以上，默认透明状态栏是带一层半透明的黑色蒙版的。保证4.4和5.0以上的高度一致，以及简化开发中这些繁琐的细节。
 
