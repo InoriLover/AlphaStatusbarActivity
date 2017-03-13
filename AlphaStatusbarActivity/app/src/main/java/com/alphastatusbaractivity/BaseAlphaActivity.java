@@ -170,7 +170,7 @@ public abstract class BaseAlphaActivity extends AppCompatActivity {
      *
      * @return
      */
-     boolean isUseLightStatusIcon(){
+     protected boolean isUseLightStatusIcon(){
         return true;
     }
     /**
