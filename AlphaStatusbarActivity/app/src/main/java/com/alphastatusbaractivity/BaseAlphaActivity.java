@@ -149,15 +149,30 @@ public abstract class BaseAlphaActivity extends AppCompatActivity {
      */
     private void createTransparentStatusBar() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow()
-                    .getDecorView()
-                    .setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+            if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M||!isUseLightStatusIcon()){
+                getWindow()
+                        .getDecorView()
+                        .setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        |View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            }else{
+                getWindow()
+                        .getDecorView()
+                        .setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+            }
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
     }
 
+    /**
+     * 是否使用灰色图标，默认为true，使用白色图标，仅6.0之后有效
+     *
+     * @return
+     */
+     boolean isUseLightStatusIcon(){
+        return true;
+    }
     /**
      * 创建和drawerlayout配合使用的状态栏
      * 对应mode为DRAWER_LAYOUT
@@ -255,6 +270,8 @@ public abstract class BaseAlphaActivity extends AppCompatActivity {
     /**
      * 设置透明状态栏的模式
      * 分三种：普通颜色模式，图片顶部透明模式，和DrawerLayout结合使用模式
+     * 当使用模式IMAGE_TOOLBAR时，可以重写{@link BaseAlphaActivity#isUseLightStatusIcon()}
+     * 默认返回true，使用白色样式图标
      *
      * @return
      */
