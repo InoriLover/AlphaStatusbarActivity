@@ -149,7 +149,7 @@ public abstract class BaseAlphaActivity extends AppCompatActivity {
      */
     private void createTransparentStatusBar() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M||!isUseLightStatusIcon()){
+            if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M&&!isUseLightStatusIcon()){
                 getWindow()
                         .getDecorView()
                         .setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
